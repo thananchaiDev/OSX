@@ -33,12 +33,11 @@
 <!K::Send {CTRL down}{Shift down}{k}{CTRL Up}{Shift Up}
 
 ; Change languages
-LongPressThreshold := 500
 CapsLockStartTime := 0
 
 CapsLock::
     CapsLockStartTime := A_TickCount ; Record when the key was pressed
-    KeyWait, CapsLock, T0.5 ; Wait to check if it's released in 500 ms
+    KeyWait, CapsLock, T0.3 ; Wait to check if it's released in 500 ms
     if (ErrorLevel) {
         ; Long press detected
         SetCapsLockState, % GetKeyState("CapsLock", "T") ? "Off" : "On"
